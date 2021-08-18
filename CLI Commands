@@ -1,0 +1,5 @@
+aws ec2 create-security-group --group-name securitygroupall  --description "allow all the traffic"
+aws ec2 authorize-security-group-ingress  --group-name securitygroupall  --protocol all  --cidr 0.0.0.0/0
+aws ec2 run-instances --image-id ami-0e306788ff2473ccb --instance-type t2.micro --count 1 --subnet-id subnet-subnet-4f421c03  --security-group-ids sg-07a385a68edddb15d --key-name Task02
+aws ec2 create-volume --availability-zone ap-south-1a --size 1  --tag-specifications 
+aws ec2 attach-volume --instance-id i-05dec59ad151a4794 --volume-id vol-006bf98f17537ab4e --device /dev/xvdh
